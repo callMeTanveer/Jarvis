@@ -25,7 +25,7 @@ def takeCommand():
 
 
 if __name__ == '__main__':
-    say('''Hi, I'm Jarvis. Your personal A.I assistant.
+    say('''Hi, I'm Jarvis. Your personal AI assistant.
             How can I help you today?''')
 
     query = takeCommand()

@@ -2,7 +2,7 @@ import speech_recognition as sr
 import os
 import win32com.client as wc
 import webbrowser
-import openai
+from aiModel import response
 
 speaker = wc.Dispatch("SAPI.SpVoice")
 
@@ -14,7 +14,7 @@ def say(text):
 def takeCommand():
     r = sr.Recognizer()
     with sr.Microphone() as source:
-        # r.pause_threshold = 1
+        r.pause_threshold = 2
         audio = r.listen(source)
         try:
             query = r.recognize_google(audio, language="en-in")
@@ -22,22 +22,33 @@ def takeCommand():
         except Exception as e:
             return "Some error occurred. Sorry from Jarvis."
 
+def Pass():
+    say("Hi, you will have to prove yourself as Tanveer before using me.")
+    for i in range(3):
+        say("What is your favourite food?")
+        response = takeCommand()
+        print(response.lower())
+        if "chicken".lower() in response.lower() or "chilli".lower() in response.lower():
+            say("Thanks for the response! Access authorized")
+            return True
+        else:
+            say(f"You are left with {2-i} attempt.")
+
+    return False
 
 
 if __name__ == '__main__':
-    say('''Hi, I'm Jarvis. Your personal AI assistant.
-            How can I help you today?''')
+    # say('''Hi, I'm Jarvis. Your personal AI assistant.
+    #         How can I help you today?''')
 
+    greeting_message = "Hello! I'm your personal assistant. Ready to assist you with information, answer questions, and help with various tasks. Feel free to ask me anything!"
+    if not Pass():
+        exit()
+
+    say(greeting_message)
     query = takeCommand()
-    say(query)
+    print(query)
+    jarvis_response = response(query)
+    print(jarvis_response)
+    say(jarvis_response)
 
-    sites = [
-        ["youtube", "https://www.youtube.com"],
-        ["wikipedia", "https://www.wikidpedia.com"],
-        ["linkedin", "https://www.linkedin.com"]
-    ]
-
-    for site in sites:
-        if f"Open {site[0]}".lower() in query.lower():
-            say(f"Opening {site[0]} sir ...")
-            webbrowser.open(site[1])

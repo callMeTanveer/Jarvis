@@ -22,18 +22,18 @@ def takeCommand():
         except Exception as e:
             return "Some error occurred. Sorry from Jarvis."
 
-def Pass():
+def user_authentication():
     say("Hi, you will have to prove yourself as Tanveer before using me.")
-    for i in range(3):
+    for i in range(1, 4):
         say("What is your favourite food?")
-        response = takeCommand()
-        print(response.lower())
-        if "chicken".lower() in response.lower() or "chilli".lower() in response.lower():
+        user_response = takeCommand()
+        print(user_response.lower())
+        if "chicken".lower() in user_response.lower() or "chilli".lower() in user_response.lower():
             say("Thanks for the response! Access authorized")
             return True
         else:
-            if i > 0:
-                say(f"You are left with {2-i} attempt.")
+            if i < 3 :
+                say(f"Wrong!! You are left with {3-i} attempt.")
             else:
                 say("Sorry!!")
                 say("The access cannot be authorized to you. And don't dare to come again.")
@@ -41,16 +41,16 @@ def Pass():
     return False
 
 def conversation():
-    say("Please say qu to end the conversation.")
-    quit = ""
+    # say("Please say qu to end the conversation.")
+    # quit = ""
 
     while True:
         query = takeCommand()
-        print(query)
+        print(f"Tanveer: {query}")
         jarvis_response = response(query)
-        # print(jarvis_response)
+        print(f"Jarvis: {jarvis_response}")
         say(jarvis_response)
-        say("What else I could help you with Tanveer?")
+        # say("What else I could help you with Tanveer?")
 
 
 
@@ -60,7 +60,7 @@ if __name__ == '__main__':
     #         How can I help you today?''')
 
     greeting_message = "Hello! I'm your personal assistant. Ready to assist you with information, answer questions, and help with various tasks. Feel free to ask me anything!"
-    if not Pass():
+    if not user_authentication():
         exit()
 
     say(greeting_message)

@@ -1,5 +1,6 @@
 import openai
 from config import key
+import re
 
 openai.api_key=key
 
@@ -16,8 +17,12 @@ def response(query):
     response = completion['choices'][0]['message']['content']
     messages.append({"role": "system", "content": response})
     response = re.sub(r'\*+(.*?)\*+', r'\1', response)
-    print(response)
+    # print(response)
     return response
+
+# response("Enlist 10 benifits of doing exercise - use bullet points with important words.")
+
+
 '''
 {
   "id": "chatcmpl-8ts6nHigZgevl5X22iY7HDEkvfkgw",

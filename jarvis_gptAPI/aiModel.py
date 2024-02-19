@@ -3,20 +3,19 @@ from config import key
 
 openai.api_key=key
 
+messages = [
+    {"role": "system", "content": "You are an intelligent and knowledgeable assistant, well-versed in a wide range of topics. You can provide information, answer questions, and assist with various tasks. Please feel free to ask me anything, and I'll do my best to provide you with accurate and helpful responses. Keep in mind that my goal is to be concise and efficient in delivering information."}
+]
 def response(query):
+    messages.append({"role": "user", "content": query})
     completion = openai.ChatCompletion.create(
         model="gpt-3.5-turbo",
-        messages=[
-            {"role": "system", "content": "You are an intelligent and knowledgeable assistant, well-versed in a wide range of topics. You can provide information, answer questions, and assist with various tasks. Please feel free to ask me anything, and I'll do my best to provide you with accurate and helpful responses. Keep in mind that my goal is to be concise and efficient in delivering information."},
-            {"role": "user", "content": query}
-        ]
+        messages=messages
     )
 
     response = completion['choices'][0]['message']['content']
+    messages.append({"role": "system", "content": response})
     return response
-
-
-
 '''
 {
   "id": "chatcmpl-8ts6nHigZgevl5X22iY7HDEkvfkgw",

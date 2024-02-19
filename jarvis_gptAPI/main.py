@@ -40,6 +40,20 @@ def Pass():
 
     return False
 
+def conversation():
+    say("Please say qu to end the conversation.")
+    quit = ""
+
+    while True:
+        query = takeCommand()
+        print(query)
+        jarvis_response = response(query)
+        # print(jarvis_response)
+        say(jarvis_response)
+        say("What else I could help you with Tanveer?")
+
+
+
 
 if __name__ == '__main__':
     # say('''Hi, I'm Jarvis. Your personal AI assistant.
@@ -50,9 +64,5 @@ if __name__ == '__main__':
         exit()
 
     say(greeting_message)
-    query = takeCommand()
-    print(query)
-    jarvis_response = response(query)
-    print(jarvis_response)
-    say(jarvis_response)
+    conversation()
 

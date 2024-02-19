@@ -4,7 +4,7 @@ from config import key
 openai.api_key=key
 
 messages = [
-    {"role": "system", "content": "You are an intelligent and knowledgeable assistant, well-versed in a wide range of topics. You can provide information, answer questions, and assist with various tasks. Please feel free to ask me anything, and I'll do my best to provide you with accurate and helpful responses. Keep in mind that my goal is to be concise and efficient in delivering information."}
+    {"role": "system", "content": "You are an intelligent and knowledgeable assistant, well-versed in a wide range of topics. You can provide information, answer questions, and assist with various tasks. Please feel free to ask me anything, and I'll do my best to provide you with accurate and helpful responses. Keep in mind that my goal is to be concise and efficient in delivering information. Always try to repond in as less words as possible unless asked explicitly to explain the topic in detail"}
 ]
 def response(query):
     messages.append({"role": "user", "content": query})
@@ -15,6 +15,8 @@ def response(query):
 
     response = completion['choices'][0]['message']['content']
     messages.append({"role": "system", "content": response})
+    response = response.replace("**", "")
+    print(response)
     return response
 '''
 {

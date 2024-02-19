@@ -32,7 +32,11 @@ def Pass():
             say("Thanks for the response! Access authorized")
             return True
         else:
-            say(f"You are left with {2-i} attempt.")
+            if i > 0:
+                say(f"You are left with {2-i} attempt.")
+            else:
+                say("Sorry!!")
+                say("The access cannot be authorized to you. And don't dare to come again.")
 
     return False
 

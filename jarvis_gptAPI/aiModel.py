@@ -15,7 +15,7 @@ def response(query):
 
     response = completion['choices'][0]['message']['content']
     messages.append({"role": "system", "content": response})
-    response = response.replace("**", "")
+    response = re.sub(r'\*+(.*?)\*+', r'\1', response)
     print(response)
     return response
 '''

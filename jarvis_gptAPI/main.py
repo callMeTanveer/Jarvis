@@ -43,13 +43,29 @@ def user_authentication():
 def conversation():
     # say("Please say qu to end the conversation.")
     # quit = ""
+    conversation_loop = True
+    response_iteration_loop = True
 
-    while True:
+    print("Hi, do you want me to iterate my responses Sir?")
+    say("Hi, do you want me to iterate my responses Sir?")
+    response_iteration = takeCommand()
+    print('''########################### Conversation Started ##############################''')
+    print(response_iteration)
+    if 'no' in response_iteration.lower() or 'not' in response_iteration.lower() or 'never' in response_iteration.lower():
+        response_iteration_loop = False
+
+    while conversation_loop:
+        print("What is command for me sir?")
+        say("What is command for me sir?")
         query = takeCommand()
         print(f"Tanveer: {query}")
         jarvis_response = response(query)
         print(f"Jarvis: {jarvis_response}")
-        say(jarvis_response)
+        if response_iteration_loop:
+            say("Sir,")
+            say(jarvis_response)
+            print("-------------------------------")
+
         # say("What else I could help you with Tanveer?")
 
 
@@ -60,9 +76,9 @@ if __name__ == '__main__':
     #         How can I help you today?''')
 
     greeting_message = "Hello! I'm your personal assistant. Ready to assist you with information, answer questions, and help with various tasks. Feel free to ask me anything!"
-    if not user_authentication():
-        exit()
+    # if not user_authentication():
+    #     exit()
 
-    say(greeting_message)
+    # say(greeting_message)
     conversation()
 

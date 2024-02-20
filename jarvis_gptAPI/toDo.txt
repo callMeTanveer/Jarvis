@@ -1,0 +1,8 @@
+1. Give user the control to stop Jarvis while he iterates the response.
+2. Give user to listen or print the response or both.
+3. Save all the conversation in text file.
+4. Empower Jarvis to do other things on system level like:
+    i. Open a file
+    ii. Search something on web
+    iii. Automate some of the frequent stuffs.
+5.

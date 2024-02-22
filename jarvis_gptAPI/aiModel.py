@@ -22,7 +22,6 @@ def response(query):
 
 # response("Enlist 10 benifits of doing exercise - use bullet points with important words.")
 
-
 '''
 {
   "id": "chatcmpl-8ts6nHigZgevl5X22iY7HDEkvfkgw",

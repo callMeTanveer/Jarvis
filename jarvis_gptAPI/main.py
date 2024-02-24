@@ -13,7 +13,7 @@ def printMe(paragraph):
     paragraph = paragraph.split()
     for words in paragraph:
         print(words, end=' ', flush=True)
-        time.sleep(.05)
+        time.sleep(.01)
     print("")
 
 # function to make the Jarvis speak.
@@ -22,7 +22,9 @@ def say(text):
 
 # function to convert speech into the text
 def takeCommand():
+    print("Listening .....", end="") # used end to make the cursor blink on the same line
     r = sr.Recognizer()
+    print()
     with sr.Microphone() as source:
         r.pause_threshold = 2
         audio = r.listen(source)
@@ -56,8 +58,8 @@ def conversation():
     conversation_loop = True
     response_iteration_loop = True
 
-    printMe("Hi, do you want me to iterate my responses Sir?")
-    say("Hi, do you want me to iterate my responses Sir?")
+    printMe("Hi, do you want me to speak out my responses?")
+    say("Hi, do you want me to speak out my responses?")
     response_iteration = takeCommand()
     printMe('''########################### Conversation Started ##############################''')
     printMe(response_iteration)
@@ -65,8 +67,8 @@ def conversation():
         response_iteration_loop = False
 
     while conversation_loop:
-        printMe("What is command for me sir?")
-        say("What is command for me sir?")
+        printMe("What is command for me?")
+        say("What is command for me?")
         query = takeCommand()
         while query == "0":
             printMe("Could you please repeat??")
@@ -76,7 +78,6 @@ def conversation():
         jarvis_response = response(query)
         printMe(f"Jarvis: {jarvis_response}")
         if response_iteration_loop:
-            say("Sir,")
             say(jarvis_response)
             printMe("-------------------------------")
 

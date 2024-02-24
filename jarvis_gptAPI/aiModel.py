@@ -33,9 +33,7 @@ def response(query):
     ]
     save_history(new_history)
     chatHistory = load_history()
-        # print(chatHistory)
 
-    # messages.append({"role": "user", "content": query})
     completion = openai.ChatCompletion.create(
         model="gpt-3.5-turbo",
         messages=chatHistory
@@ -43,44 +41,11 @@ def response(query):
 
     response = completion['choices'][0]['message']['content']
     response = re.sub(r'\*+(.*?)\*+', r'\1', response)
-    # chatHistory.append({"role": "system", "content": response})
-    # print(response)
     new_response = [
         {"role": "assistant", "content": response}
     ]
     save_history(new_response)
     return response
-
-# response("Enlist 10 benifits of doing exercise - use bullet points with important words.")
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 '''
 {

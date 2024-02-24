@@ -1,4 +1,4 @@
 .env
 config.py
-*.json
+conversationHistory.json
 testings.py

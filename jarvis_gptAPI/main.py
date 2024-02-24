@@ -1,10 +1,20 @@
 import speech_recognition as sr
-import os
+# import os
 import win32com.client as wc
-import webbrowser
+# import webbrowser
 from aiModel import response
+import time
 
 speaker = wc.Dispatch("SAPI.SpVoice")
+
+
+# function to print line alike ChatGPT
+def printMe(paragraph):
+    paragraph = paragraph.split()
+    for words in paragraph:
+        print(words, end=' ', flush=True)
+        time.sleep(.05)
+    print("")
 
 # function to make the Jarvis speak.
 def say(text):
@@ -20,14 +30,14 @@ def takeCommand():
             query = r.recognize_google(audio, language="en-in")
             return query
         except Exception as e:
-            return "Some error occurred. Sorry from Jarvis."
+            return "0"
 
 def user_authentication():
     say("Hi, you will have to prove yourself as Tanveer before using me.")
     for i in range(1, 4):
         say("What is your favourite food?")
         user_response = takeCommand()
-        print(user_response.lower())
+        printMe(user_response.lower())
         if "chicken".lower() in user_response.lower() or "chilli".lower() in user_response.lower():
             say("Thanks for the response! Access authorized")
             return True
@@ -46,25 +56,29 @@ def conversation():
     conversation_loop = True
     response_iteration_loop = True
 
-    print("Hi, do you want me to iterate my responses Sir?")
+    printMe("Hi, do you want me to iterate my responses Sir?")
     say("Hi, do you want me to iterate my responses Sir?")
     response_iteration = takeCommand()
-    print('''########################### Conversation Started ##############################''')
-    print(response_iteration)
+    printMe('''########################### Conversation Started ##############################''')
+    printMe(response_iteration)
     if 'no' in response_iteration.lower() or 'not' in response_iteration.lower() or 'never' in response_iteration.lower():
         response_iteration_loop = False
 
     while conversation_loop:
-        print("What is command for me sir?")
+        printMe("What is command for me sir?")
         say("What is command for me sir?")
         query = takeCommand()
-        print(f"Tanveer: {query}")
+        while query == "0":
+            printMe("Could you please repeat??")
+            say("Could you please repeat??")
+            query = takeCommand()
+        printMe(f"Tanveer: {query}")
         jarvis_response = response(query)
-        print(f"Jarvis: {jarvis_response}")
+        printMe(f"Jarvis: {jarvis_response}")
         if response_iteration_loop:
             say("Sir,")
             say(jarvis_response)
-            print("-------------------------------")
+            printMe("-------------------------------")
 
         # say("What else I could help you with Tanveer?")
 

@@ -1,2 +1,4 @@
 .env
 config.py
+.json
+testings.py

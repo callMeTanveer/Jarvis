@@ -1,26 +1,86 @@
 import openai
 from config import key
 import re
+import json
 
 openai.api_key=key
 
-messages = [
-    {"role": "system", "content": "You are an intelligent and knowledgeable assistant, well-versed in a wide range of topics. You can provide information, answer questions, and assist with various tasks. Please feel free to ask me anything, and I'll do my best to provide you with accurate and helpful responses. Keep in mind that my goal is to be concise and efficient in delivering information. Always try to repond in as less words as possible unless asked explicitly to explain the topic in detail"}
-]
+def load_history(filename='conversationHistory.json'):
+    try:
+        with open(filename, 'r') as file:
+            chat_history = json.load(file)
+            if not isinstance(chat_history, list):
+                raise ValueError("Invalid chat history format")
+        return chat_history
+    except (FileNotFoundError, json.JSONDecodeError, ValueError):
+        return []
+
+def save_history(chat_history, filename='conversationHistory.json'):
+    # Load existing history
+    existing_history = load_history(filename)
+
+    # Append new entries to the existing history
+    existing_history.extend(chat_history)
+
+    # Save the entire updated history
+    with open(filename, 'w') as file:
+        file.write(json.dumps(existing_history, indent=2))
+
+
 def response(query):
-    messages.append({"role": "user", "content": query})
+    new_history = [
+        {"role": "user", "content": query}
+    ]
+    save_history(new_history)
+    chatHistory = load_history()
+        # print(chatHistory)
+
+    # messages.append({"role": "user", "content": query})
     completion = openai.ChatCompletion.create(
         model="gpt-3.5-turbo",
-        messages=messages
+        messages=chatHistory
     )
 
     response = completion['choices'][0]['message']['content']
-    messages.append({"role": "system", "content": response})
     response = re.sub(r'\*+(.*?)\*+', r'\1', response)
+    # chatHistory.append({"role": "system", "content": response})
     # print(response)
+    new_response = [
+        {"role": "assistant", "content": response}
+    ]
+    save_history(new_response)
     return response
 
 # response("Enlist 10 benifits of doing exercise - use bullet points with important words.")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 '''
 {

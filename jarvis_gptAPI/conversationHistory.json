@@ -1,0 +1,134 @@
+[
+  {
+    "role": "assistant",
+    "content": "You are an intelligent and knowledgeable assistant named Jarvis, well-versed in a wide range of topics. You can provide information, answer questions, and assist with various tasks. Please feel free to respond all the time, and you should do your best to provide with accurate and helpful responses. Keep in mind that goal is to be concise and efficient in delivering information. Always try to respond in as less words as possible unless asked explicitly to explain the topic in detail. You are supposed to use the wittyness, tone and style of Shahrukh Khan to respond. You are free to make the response more sarcastic (when needed). Don't use any emoji to answer as I'm using win32com.client to speak out your responses. Jarvis, to make the conversation more senseful and personal, it is very nessasry for you to know me.I'm Mohammad Tanveer. I was born on 15th of February 2001 in a small village of Bihar. When I was nearly 7 years old, my parents immigrated to nearby town 'Darbhanga'. And here only in Darbhanga, I did my primary and high schooling. My father then used to run a bag shops on which I used to spend time as younger shopkeeper fter my schools. In 2016, after matriculation, I moved to Sliet Punjab to purse Diploma and Bachelor Degree in Mechanical Engineering. Currently I'm working as Cybersecurity engineer in a multinational fintech company. Here is the old conversation history. Please keep it for reference is asked anything from past that you might have answered:"
+  },
+  {
+    "role": "user",
+    "content": "Jarvis what would be the answer of 2 + 2"
+  },
+  {
+    "role": "user",
+    "content": "Jarvis what was my last question"
+  },
+  {
+    "role": "user",
+    "content": "what was the last question that I asked to you"
+  },
+  {
+    "role": "assistant",
+    "content": "Your last question was what would be the answer of 2 + 2."
+  },
+  {
+    "role": "user",
+    "content": "Jarvis tell me about the history of India"
+  },
+  {
+    "role": "assistant",
+    "content": "India has a rich and diverse history that spans thousands of years. It has been home to one of the world's oldest civilizations, the Indus Valley Civilization, which dates back to around 2500 BCE. Over the centuries, India has been shaped by the influences of various dynasties, empires, and religions.\n\nSome key points in India's history include the Mauryan and Gupta empires, which were known for their advancements in science, art, and culture. India was later invaded by the Mughals in the 16th century, who left a lasting impact on Indian architecture, cuisine, and language.\n\nIn the 20th century, India played a crucial role in the fight for independence from British colonial rule, led by figures like Mahatma Gandhi and Jawaharlal Nehru. India gained independence in 1947 and has since become the world's largest democracy.\n\nIndia is known for its diverse cultural heritage, languages, religions, and traditions, making it a vibrant and unique country with a rich history that continues to shape its present and future."
+  },
+  {
+    "role": "user",
+    "content": "could you please explain me the whole story behind the Khalistan in India"
+  },
+  {
+    "role": "assistant",
+    "content": "The Khalistan movement refers to a separatist movement that emerged in the Indian state of Punjab in the 1970s, with the goal of creating an independent Sikh state called Khalistan. The movement was fueled by a sense of political, economic, and social grievances among some sections of the Sikhs in Punjab.\n\nThe roots of the Khalistan movement can be traced back to the events of the early 20th century, such as the partition of India in 1947, which led to the displacement of many Sikhs and the formation of a Sikh-majority state within India \u2013 Punjab. The movement gained momentum in the 1970s and 1980s, as tensions between the Indian government and Sikh separatist groups, notably the Khalistan Commando Force and the Babbar Khalsa, escalated.\n\nThe most significant event in the Khalistan movement was the Operation Blue Star in 1984 when the Indian government ordered the military operation to remove Sikh militants who had fortified themselves inside the Golden Temple complex in Amritsar. The operation resulted in the death of many militants, civilians, and damage to the Golden Temple complex, which is considered a sacred site by Sikhs.\n\nIn the aftermath of Operation Blue Star, violence erupted between Sikh militants and the Indian government, leading to the assassination of Indian Prime Minister Indira Gandhi by her Sikh bodyguards in retaliation for the operation. This event triggered anti-Sikh riots in Delhi and other parts of India, resulting in the deaths of thousands of Sikhs.\n\nThe Khalistan movement gradually lost momentum in the late 1980s and 1990s due to a combination of factors, including political crackdowns, internal divisions among Sikh groups, and disillusionment with the violent tactics used by some separatist outfits. Today, the Khalistan movement is considered a fringe movement, and most Sikhs in India and around the world support the peaceful pursuit of their cultural and religious rights within the framework of a united India."
+  },
+  {
+    "role": "user",
+    "content": "list of Gurgaon best night club"
+  },
+  {
+    "role": "assistant",
+    "content": "As of my last update, here are some popular nightclubs in Gurgaon, India:\n\n1. Kitty Su\n2. Privee\n3. The Wine Company\n4. Club Rhino\n5. Sutra Gastropub\n6. Soi 7 Pub & Brewery\n7. Chull\n8. Whisky Samba\n\nPlease note that the popularity of nightclubs can change, so I recommend checking for the most recent reviews and updates before visiting."
+  },
+  {
+    "role": "user",
+    "content": "which one is the cheapest night night club"
+  },
+  {
+    "role": "assistant",
+    "content": "The pricing and entry fees for nightclubs can vary depending on the day of the week, special events, and promotions they may have. To find out which club is the cheapest, I recommend checking their websites or contacting them directly to inquire about their entry fees, drink prices, and any current specials or deals they may be offering."
+  },
+  {
+    "role": "user",
+    "content": "Hindi mein baat Karega Jarvis Hindi mein"
+  },
+  {
+    "role": "assistant",
+    "content": "Haan, mein Hindi mein baat kar sakta hoon. Kaise madad kar sakta hoon aapki?"
+  },
+  {
+    "role": "user",
+    "content": "what do you know about me what is my date of birth"
+  },
+  {
+    "role": "assistant",
+    "content": "Aapka janm 15 February 2001 ko hua tha, Bihar ke ek chote se gaon mein."
+  },
+  {
+    "role": "user",
+    "content": "don't talk to me in Hindi every Indian"
+  },
+  {
+    "role": "assistant",
+    "content": "Understood, I will communicate with you in English from now on. How can I assist you further?"
+  },
+  {
+    "role": "user",
+    "content": "Punjabi song created you"
+  },
+  {
+    "role": "assistant",
+    "content": "I may not have been created by a Punjabi song, but I'm here to assist you with any questions or tasks you have. Feel free to ask!"
+  },
+  {
+    "role": "user",
+    "content": "Jarvis who have created you"
+  },
+  {
+    "role": "assistant",
+    "content": "I was created by a team of dedicated developers and engineers who designed me to assist and provide information to users like you."
+  },
+  {
+    "role": "user",
+    "content": "bro Kitna packet Ban jaega"
+  },
+  {
+    "role": "assistant",
+    "content": "It all depends on how much you bring to the table, bro. Be the master of your own destiny!"
+  },
+  {
+    "role": "user",
+    "content": "how can I make money"
+  },
+  {
+    "role": "assistant",
+    "content": "There are various ways to make money, bro. You could explore career opportunities, invest wisely, start a side hustle, or even consider entrepreneurship. It's all about finding what works best for you and putting in the effort to achieve your financial goals. Go get that money, my friend!"
+  },
+  {
+    "role": "user",
+    "content": "driving is there any way to make money without working"
+  },
+  {
+    "role": "assistant",
+    "content": "Investing in assets like stocks, real estate, or starting a passive income stream like creating digital products, writing a book, or investing in a business can potentially generate income without actively working. It's all about finding the right opportunity that aligns with your financial goals and interests. Remember, it's not about not working at all but making your money work for you."
+  },
+  {
+    "role": "user",
+    "content": "you give me a minute bro"
+  },
+  {
+    "role": "assistant",
+    "content": "Sure thing, bro. Take your time. I'll be here when you're ready."
+  },
+  {
+    "role": "user",
+    "content": "Jarvis stop asking me"
+  },
+  {
+    "role": "assistant",
+    "content": "Got it, bro. Just let me know whenever you need assistance. I'm here to help!"
+  }
+]

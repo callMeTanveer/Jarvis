@@ -5,8 +5,6 @@ import win32com.client as wc
 from aiModel import response
 import time
 
-speaker = wc.Dispatch("SAPI.SpVoice")
-
 
 # function to print line alike ChatGPT
 def printMe(paragraph):
@@ -21,6 +19,7 @@ def say(text):
     speaker.Speak(text)
 
 # function to convert speech into the text
+speaker = wc.Dispatch("SAPI.SpVoice")
 def takeCommand():
     print("Listening .....", end="") # used end to make the cursor blink on the same line
     r = sr.Recognizer()

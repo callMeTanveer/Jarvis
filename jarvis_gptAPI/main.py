@@ -2,7 +2,7 @@ import speech_recognition as sr
 # import os
 import win32com.client as wc
 # import webbrowser
-from aiModel import response
+from aiModel import response, intentionFinder
 import time
 
 
@@ -79,9 +79,9 @@ def conversation():
         # specific query like weather report of a particular city for which different api needed.
         # basically find out the intention of the query based on what jarvis could do or what jarvis coulddn't by himself
 
-        jarvis_response = response(query)
+        jarvis_response = intentionFinder(query)
         printMe(f"Jarvis: {jarvis_response}")
-        if response_iteration_loop:
+        if response_iteration_loop: # whether jarvis to speak out the response or not
             say(jarvis_response)
             printMe("-------------------------------")
 

@@ -2,8 +2,8 @@ import openai
 from config import openAI_key
 import re
 import json
-
 openai.api_key=openAI_key
+from weather import get_weather_report
 
 def load_history(filename='conversationHistory.json'):
     try:
@@ -15,12 +15,12 @@ def load_history(filename='conversationHistory.json'):
     except (FileNotFoundError, json.JSONDecodeError, ValueError):
         return []
 
-def save_history(chat_history, filename='conversationHistory.json'):
+def save_history(new_chat_history, filename='conversationHistory.json'):
     # Load existing history
     existing_history = load_history(filename)
 
     # Append new entries to the existing history
-    existing_history.extend(chat_history)
+    existing_history.extend(new_chat_history)
 
     # Save the entire updated history
     with open(filename, 'w') as file:
@@ -46,6 +46,31 @@ def response(query):
     ]
     save_history(new_response)
     return response
+
+
+def intentionFinder(query):
+    instruction = '''I want you to detect the intention of the query passed. I'll provide you the query and you have to detect any of the following two conditions: Possible Intentions: 1. Retrieve a generic response from GPT: "gpt_response" 2. Get weather details for a city: "weather-city_name" Please provide a response indicating the detected intention. For example, Jarvis, how to make coffee then your response should only this string "gpt_response" but if user asks Jarvis, What is the weather in Delhi today then your response should be "weather-Delhi" as per "weather-city_name" format. Please take care of the sysnonyms as user can ask similar question using different words.'''
+    prompt = [
+        {"role": "user", "content": instruction},
+        {"role": "assistant", "content": query}
+    ]
+    completion = openai.ChatCompletion.create(
+        model="gpt-3.5-turbo",
+        messages=prompt
+    )
+
+    intention = completion['choices'][0]['message']['content']
+    if intention == "gpt_response":
+        return response(query)
+
+    else:
+        cityName = intention[8:]
+        weatherDetails = get_weather_report(cityName)
+        instruction = f"Please summarize the below given weather details of city {cityName}: Temperature = {weatherDetails['Temprature']}, Condition = {weatherDetails['Condition']}, Wind Speed = {weatherDetails['Wind Speed']} and Pressure = {weatherDetails['Pressure']}. Please do not and never summerize in bullet points. Please write in paragraph in the way if a reporter reporting the whether conditions."
+        return response(instruction)
+
+
+# print(intentionFinder("Jarvis, What is the best climate condition to visit London?"))
 
 '''
 {

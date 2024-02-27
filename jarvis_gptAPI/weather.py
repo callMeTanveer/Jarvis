@@ -20,6 +20,7 @@ def get_weather_report(location):
         if "error" in data:
             print(f"Error: {data['error']['message']}")
         else:
+            current_condition = data["current"]
             weather_report['Temprature'] = current_condition['temp_c']
             weather_report['Condition'] = current_condition['condition']['text']
             weather_report['Wind Speed'] = current_condition['wind_kph']
@@ -31,3 +32,4 @@ def get_weather_report(location):
     except requests.RequestException as e:
         print(f"Request failed: {e}")
 
+# print(get_weather_report("delhi"))

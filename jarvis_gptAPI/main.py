@@ -74,6 +74,11 @@ def conversation():
             say("Could you please repeat??")
             query = takeCommand()
         printMe(f"Tanveer: {query}")
+
+        # find out the intention or nature of query eg: 1. general query which jarvis directly answer,
+        # specific query like weather report of a particular city for which different api needed.
+        # basically find out the intention of the query based on what jarvis could do or what jarvis coulddn't by himself
+
         jarvis_response = response(query)
         printMe(f"Jarvis: {jarvis_response}")
         if response_iteration_loop:

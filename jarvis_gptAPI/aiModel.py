@@ -1,9 +1,9 @@
 import openai
-from config import key
+from config import openAI_key
 import re
 import json
 
-openai.api_key=key
+openai.api_key=openAI_key
 
 def load_history(filename='conversationHistory.json'):
     try:
